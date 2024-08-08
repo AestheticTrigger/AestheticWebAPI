@@ -11,6 +11,7 @@ namespace Orders.Domain
         public string Details { get; set; }
         public int PhoneNumber { get; set; }
         public DateTime CreationDate { get; set; }
+        public DateTime? UpdateStatus {  get; set; }
         public string OrderStatus { get; set; }
     }
 }
