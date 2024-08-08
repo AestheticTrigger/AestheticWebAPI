@@ -1,4 +1,4 @@
-﻿namespace Orders.Persistance
+﻿namespace Orders.Persistence
 {
     public class DbInitializer
     {

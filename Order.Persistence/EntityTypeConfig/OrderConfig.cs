@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Orders.Domain;
 
 
-namespace Orders.Persistance.EntityTypeConfig
+namespace Orders.Persistence.EntityTypeConfig
 {
     public class OrderConfig : IEntityTypeConfiguration<Order>
     {

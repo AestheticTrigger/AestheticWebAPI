@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orders.Application.Interfaces;
 using Orders.Domain;
-using Orders.Persistance.EntityTypeConfig;
+using Orders.Persistence.EntityTypeConfig;
 
-namespace Orders.Persistance
+namespace Orders.Persistence
 {
     public class OrdersDbContext : DbContext, IOrderDbContext
     {
