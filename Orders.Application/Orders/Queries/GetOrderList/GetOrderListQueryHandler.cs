@@ -16,7 +16,7 @@ namespace Orders.Application.Orders.Queries.GetOrderList
         private readonly IOrderDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public GetOrderListQueryHandler(IOrderDbContext dbContext, IMapper mapper) => (dbContext, mapper) = (_dbContext, _mapper);
+        public GetOrderListQueryHandler(IOrderDbContext dbContext, IMapper mapper) => (_dbContext, _mapper) = (dbContext, mapper);
         
         public async Task<OrderListVm> Handle(GetOrderListQuery request, CancellationToken cancellationToken)
         {
@@ -26,5 +26,6 @@ namespace Orders.Application.Orders.Queries.GetOrderList
                 .ToListAsync(cancellationToken);
             return new OrderListVm { Orders = ordersQuery };
         }
+
     }
 }
