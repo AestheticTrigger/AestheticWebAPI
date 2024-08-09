@@ -11,7 +11,7 @@ using Orders.Application;
 using Orders.Application.Common.Mapping;
 using Orders.Application.Interfaces;
 using Orders.Persistence;
-
+using Orders.WebApi.Middleware;
 
 namespace Orders.WebApi
 {
@@ -50,6 +50,7 @@ namespace Orders.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
