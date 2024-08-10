@@ -11,6 +11,7 @@ using Orders.Application.Orders.Commands.Update_Order;
 using Orders.WebApi.Models;
 using Microsoft.AspNetCore.Authentication;
 using Orders.Application.Orders.Commands.Update_Order;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Orders.WebApi.Controllers
 {
@@ -22,6 +23,7 @@ namespace Orders.WebApi.Controllers
         public OrderController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<OrderListVm>> GetAll()
         {
             var query = new GetOrderListQuery
@@ -34,6 +36,7 @@ namespace Orders.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<OrderDetailsVm>> Get(Guid id)
         {
             var query = new GetOrderDetailsQuery
@@ -46,6 +49,7 @@ namespace Orders.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateOrderDto createOrderDto)
         {
             var command = _mapper.Map<CreateOrderCommand>(createOrderDto);
@@ -55,6 +59,7 @@ namespace Orders.WebApi.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateOrderDto updateOrderDto)
         {
             var command = _mapper.Map<UpdateOrderCommand>(updateOrderDto);

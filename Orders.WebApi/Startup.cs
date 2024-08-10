@@ -12,6 +12,7 @@ using Orders.Application.Common.Mapping;
 using Orders.Application.Interfaces;
 using Orders.Persistence;
 using Orders.WebApi.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Orders.WebApi
 {
@@ -42,6 +43,18 @@ namespace Orders.WebApi
                     policy.AllowAnyOrigin();
                 });
             });
+
+            services.AddAuthentication(config =>
+            {
+                config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer("Bearer", option =>
+                {
+                    option.Authority = "https://localhost:44356";
+                    option.Audience = "NotesWebAPI";
+                    option.RequireHttpsMetadata = false;
+                });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -55,12 +68,10 @@ namespace Orders.WebApi
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
 
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
                 endpoints.MapControllers();
             });
         }
