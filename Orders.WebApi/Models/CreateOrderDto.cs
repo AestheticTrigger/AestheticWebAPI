@@ -8,7 +8,7 @@ namespace Orders.WebApi.Models
     {
         public string FisrstName { get; set; }
         public string LastName { get; set; }
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
         public string Details { get; set; }
 
         public void Mapping(Profile profile)

@@ -7,7 +7,7 @@ namespace Orders.Application.Orders.Queries.GetOrderList
     public class OrderLookupDto : IMapWith<Order>
     {
         public Guid Id { get; set; }
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
 
         public void Mapping(Profile profile)
         {

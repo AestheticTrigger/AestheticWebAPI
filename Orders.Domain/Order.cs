@@ -9,7 +9,7 @@ namespace Orders.Domain
         public string FisrstName { get; set; }
         public string LastName { get; set; }
         public string Details { get; set; }
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? UpdateStatus {  get; set; }
         public string OrderStatus { get; set; }
