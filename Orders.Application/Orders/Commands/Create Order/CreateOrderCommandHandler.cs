@@ -12,9 +12,9 @@ namespace Orders.Application.Orders.Commands.Create_Order
 {
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Guid>
     {
-        private readonly IOrderDbContext _dbContext;
+        private readonly IOrdersDbContext _dbContext;
 
-        public CreateOrderCommandHandler(IOrderDbContext dbContext) => _dbContext = dbContext;
+        public CreateOrderCommandHandler(IOrdersDbContext dbContext) => _dbContext = dbContext;
         
         public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken )
         {
@@ -22,7 +22,7 @@ namespace Orders.Application.Orders.Commands.Create_Order
             {
                 UserId = request.UserId,
                 Id = Guid.NewGuid(),
-                FisrstName = request.FisrstName,
+                FirstName = request.FirstName,
                 LastName = request.LastName,
                 PhoneNumber = request.PhoneNumber,
                 CreationDate = DateTime.Now,

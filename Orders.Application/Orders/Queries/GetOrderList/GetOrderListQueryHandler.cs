@@ -13,10 +13,10 @@ namespace Orders.Application.Orders.Queries.GetOrderList
 {
     public class GetOrderListQueryHandler : IRequestHandler<GetOrderListQuery, OrderListVm>
     {
-        private readonly IOrderDbContext _dbContext;
+        private readonly IOrdersDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public GetOrderListQueryHandler(IOrderDbContext dbContext, IMapper mapper) => (_dbContext, _mapper) = (dbContext, mapper);
+        public GetOrderListQueryHandler(IOrdersDbContext dbContext, IMapper mapper) => (_dbContext, _mapper) = (dbContext, mapper);
         
         public async Task<OrderListVm> Handle(GetOrderListQuery request, CancellationToken cancellationToken)
         {

@@ -5,7 +5,7 @@ using Orders.Persistence.EntityTypeConfig;
 
 namespace Orders.Persistence
 {
-    public class OrdersDbContext : DbContext, IOrderDbContext
+    public class OrdersDbContext : DbContext, IOrdersDbContext
     {
         public DbSet<Order> Orders { get; set; }
 

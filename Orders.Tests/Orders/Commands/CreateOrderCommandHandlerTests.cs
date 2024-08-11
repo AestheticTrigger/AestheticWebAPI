@@ -21,7 +21,7 @@ namespace Orders.Tests.Orders.Commands
             //Act
             var orderId = await handler.Handle(new CreateOrderCommand
             {
-                FisrstName = orderFirstname,
+                FirstName = orderFirstname,
                 LastName = orderLastname,
                 Details = orderDetails,
                 PhoneNumber = orderPhoneNumber
@@ -29,8 +29,10 @@ namespace Orders.Tests.Orders.Commands
             CancellationToken.None);
 
             //Assert
-            Assert.NotNull( await Context.Orders.SingleOrDefaultAsync(order =>
-            order.Id == orderId && order.))
+            Assert.NotNull(await Context.Orders.SingleOrDefaultAsync(order =>
+            order.Id == orderId && order.FirstName == orderFirstname && order.LastName == orderLastname &&
+            order.Details == orderDetails && order.PhoneNumber == orderPhoneNumber));
         }
+
     }
 }

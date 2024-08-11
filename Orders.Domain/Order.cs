@@ -6,7 +6,7 @@ namespace Orders.Domain
     {
         public Guid UserId { get; set; }
         public Guid Id { get; set; }
-        public string FisrstName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Details { get; set; }
         public long PhoneNumber { get; set; }

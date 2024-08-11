@@ -7,7 +7,7 @@ namespace Orders.Application.Orders.Commands.Create_Order
     {
         public CreateOrderCommandValidator() 
         {
-            RuleFor(createOrderCommand => createOrderCommand.FisrstName).NotEmpty().MaximumLength(250);
+            RuleFor(createOrderCommand => createOrderCommand.FirstName).NotEmpty().MaximumLength(250);
             RuleFor(createOrderCommand => createOrderCommand.LastName).NotEmpty().MaximumLength(250);
             RuleFor(createOrderCommand => createOrderCommand.PhoneNumber.ToString()).NotEmpty()
                 .Must(phoneNumber => phoneNumber.Length == 12).Must(phoneNumber => phoneNumber.StartsWith("380"));

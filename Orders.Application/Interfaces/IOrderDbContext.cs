@@ -6,7 +6,7 @@ using Orders.Domain;
 
 namespace Orders.Application.Interfaces
 {
-    public interface IOrderDbContext
+    public interface IOrdersDbContext
     {
         DbSet<Order> Orders { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);

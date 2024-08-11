@@ -15,10 +15,10 @@ namespace Orders.Application.Orders.Queries.GetOrderDetails
 {
     public class GetOrderDetailsQueryHandler : IRequestHandler<GetOrderDetailsQuery, OrderDetailsVm>
     {
-        private readonly IOrderDbContext _dbContext;
+        private readonly IOrdersDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public GetOrderDetailsQueryHandler(IOrderDbContext dbContext, IMapper mapper) => (_dbContext, _mapper) = (dbContext, mapper);
+        public GetOrderDetailsQueryHandler(IOrdersDbContext dbContext, IMapper mapper) => (_dbContext, _mapper) = (dbContext, mapper);
         public async Task<OrderDetailsVm> Handle(GetOrderDetailsQuery request, CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Orders.FirstOrDefaultAsync(order => order.Id == request.Id, cancellationToken);

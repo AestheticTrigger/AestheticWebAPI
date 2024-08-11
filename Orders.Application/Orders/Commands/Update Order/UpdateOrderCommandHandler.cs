@@ -14,8 +14,8 @@ namespace Orders.Application.Orders.Commands.Update_Order
 {
     public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, Unit>
     {
-        private readonly IOrderDbContext _dbContext;
-        public UpdateOrderCommandHandler(IOrderDbContext dbContext) => _dbContext = dbContext;               
+        private readonly IOrdersDbContext _dbContext;
+        public UpdateOrderCommandHandler(IOrdersDbContext dbContext) => _dbContext = dbContext;               
         public async Task<Unit> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
             var entity =

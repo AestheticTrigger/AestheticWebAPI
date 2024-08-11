@@ -12,7 +12,7 @@ namespace Orders.Application.Orders.Queries.GetOrderDetails
     public class OrderDetailsVm : IMapWith<Order>
     {
         public Guid Id { get; set; }
-        public string FisrstName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Details { get; set; }
         public long PhoneNumber { get; set; }
@@ -24,8 +24,8 @@ namespace Orders.Application.Orders.Queries.GetOrderDetails
             profile.CreateMap<Order, OrderDetailsVm>()
                 .ForMember(orderVm => orderVm.Id,
                 opt => opt.MapFrom(order => order.Id))
-                .ForMember(orderVm => orderVm.FisrstName,
-                opt => opt.MapFrom(order => order.FisrstName))
+                .ForMember(orderVm => orderVm.FirstName,
+                opt => opt.MapFrom(order => order.FirstName))
                 .ForMember(orderVm => orderVm.LastName,
                 opt => opt.MapFrom(order => order.LastName))
                 .ForMember(orderVm => orderVm.Details,

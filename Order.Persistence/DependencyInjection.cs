@@ -15,7 +15,7 @@ namespace Orders.Persistence
                 options.UseSqlite(connectionString);
             });
 
-            services.AddScoped<IOrderDbContext>(provider => provider.GetService<OrdersDbContext>());
+            services.AddScoped<IOrdersDbContext>(provider => provider.GetService<OrdersDbContext>());
 
             return services;
         }
