@@ -63,7 +63,7 @@ namespace Orders.Tests.Common
                     LastName = "Name4",
                     UserId = UserBId,
                     PhoneNumber = 380957726003,
-                    OrderStatus = "Test2"
+                    OrderStatus = "Test3"
                 }
             );
             context.SaveChanges();

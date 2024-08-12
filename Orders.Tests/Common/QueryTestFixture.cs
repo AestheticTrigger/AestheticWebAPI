@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Orders.Application.Common.Mapping;
 using Orders.Persistence;
+using Orders.Domain;
 using Orders.Application.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Orders.Tests.Common
 {
     public class QueryTestFixture : IDisposable
     {
-        public IOrdersDbContext Context;
+        public OrdersDbContext Context;
         public IMapper Mapper;
 
         public QueryTestFixture() 

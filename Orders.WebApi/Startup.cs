@@ -27,7 +27,7 @@ namespace Orders.WebApi
             services.AddAutoMapper(config =>
             {
                 config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-                config.AddProfile(new AssemblyMappingProfile(typeof(IOrderDbContext).Assembly));
+                config.AddProfile(new AssemblyMappingProfile(typeof(IOrdersDbContext).Assembly));
             });
 
             services.AddApplication();
